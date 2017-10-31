@@ -1,0 +1,80 @@
+version: '2.0'
+services:
+  elasticsearch:
+    build: elasticsearch/
+    image: elasticsearch:5.5
+    volumes:
+      - ./elasticsearch-00/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+     # - ./elasticsearch-00/config/jvm.options:/usr/share/elasticsearch/config/jvm.options
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks: 
+      - esnet
+  elasticsearch-01:
+    build: elasticsearch/
+    image: elasticsearch:5.5
+    volumes:
+      - ./elasticsearch-01/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+     # - ./elasticsearch-01/config/jvm.options:/usr/share/elasticsearch/config/jvm.options
+    ports:
+      - "9201:9200"
+      - "9301"
+    networks:
+      - esnet
+  elasticsearch-02:
+    build: elasticsearch/
+    image: elasticsearch:5.5
+    volumes:
+      - ./elasticsearch-02/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    #  - ./elasticsearch-02/config/jvm.options:/usr/share/elasticsearch/config/jvm.options
+    ports:
+      - "9202:9200"
+      - "9302"
+    networks:
+      - esnet
+  elasticsearch-03:
+    build: elasticsearch/
+    image: elasticsearch:5.5
+    volumes:
+      - ./elasticsearch-03/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+     # - ./elasticsearch-03/config/jvm.options:/usr/share/elasticsearch/config/jvm.options
+    ports:
+      - "9203:9200"
+      - "9303"
+    networks:
+      - esnet
+  logstash:
+    build: logstash/
+    command: logstash -f /etc/logstash/conf.d/logstash.conf
+    volumes:
+      - ./logstash/config:/etc/logstash/conf.d
+      - ./logstash/config/patterns:/etc/logstash/patterns.d
+    ports:
+      - "5000:5000"
+      - "5044:5044"
+    links:
+      - elasticsearch
+    networks:
+      - esnet
+  kibana:
+    build: kibana/
+    volumes:
+      - ./kibana/config/:/opt/kibana/config/
+    ports:
+      - "5601:5601"
+    links:
+      - elasticsearch
+    depends_on:
+      - elasticsearch
+      - logstash
+    networks:
+      - esnet
+
+networks:
+  default:
+    external:
+        name: bridge
+  esnet:     
+    external:
+        name: esnet

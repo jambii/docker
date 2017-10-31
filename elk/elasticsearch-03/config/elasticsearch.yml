@@ -1,0 +1,9 @@
+---
+xpack.security.enabled: false
+node.attr.box_type: warm
+node.name: "elasticsearch-03"
+cluster.name: "docker-cluster"
+network.host: 0.0.0.0
+discovery.type: zen
+discovery.zen.ping.unicast.hosts: ["elasticsearch:9300","elasticsearch-01:9301","elasticsearch-02:9302"]
+discovery.zen.minimum_master_nodes: 2
