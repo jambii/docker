@@ -1,5 +1,10 @@
 ## manysql-client Docker image!
 
+### Why did I make this?
+
+To be able to execute remote queries on a machine where only Docker is available (by choice, by constraint, or both).
+True, the use cases could be acheived by many other means. But I find this way the cleanest and have grown to love it!
+
 What I've included: mysql client, psql client, sqlite3, pip, and alembic. I chose these as they're most common, all work with Alembic, and because I didn't want TOO huge of an image.
 Adding more clients is easy, simply update the `apk add` command on line 4 of the Dockerfile.
 
@@ -51,7 +56,16 @@ alembic upgrade: error: too few arguments
 
 #### Use cases:
 
-- Preforming remote upgrades/hotfixes/actions on-the-go, as part of a deploy, build, or maintenance process
+- Preforming remote upgrades/hotfixes/actions on-the-go, as part of a deploy, build, or test processes
 
-- Executing remote queries on a machine where only Docker is installed, and installing other clients are not possible
+- Automation flexibility or alert response; one could configure the tool in a reactionary way to run hotfix/repair commands and/or collect data on incidents
 
+- Gathering data from a client and reporting it elsewhere, for personal debugging, or as part of everyday monitoring/testing
+
+
+
+### What this is NOT:
+
+- Not a replacement for serving data to clients.
+
+- Not a replacement for long-term storage or monitoring; though, it is still possible to benefit from mounted volumes if you configure the container to leave behind mounted directory contents. I will work on providing examples of such.
