@@ -51,6 +51,12 @@ usage: alembic upgrade [-h] [--sql] [--tag TAG] revision
 alembic upgrade: error: too few arguments
 ```
 
+
+### How to modify 
+
+Todo: words about ONBUILD, venvs, volume mount, resource allocation
+
+
 ---
 
 
