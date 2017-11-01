@@ -8,6 +8,9 @@ True, the use cases could be acheived by many other means. But I find this way t
 What I've included: mysql client, psql client, sqlite3, pip, and alembic. I chose these as they're most common, all work with Alembic, and because I didn't want TOO huge of an image.
 Adding more clients is easy, simply update the `apk add` command on line 4 of the Dockerfile.
 
+---
+
+
 ### How to use
 
 Run the desired command immediately after the image name in `docker run` syntax.
@@ -50,6 +53,8 @@ psql (PostgreSQL) 9.6.5
 usage: alembic upgrade [-h] [--sql] [--tag TAG] revision
 alembic upgrade: error: too few arguments
 ```
+
+---
 
 
 ### How to modify 
