@@ -1,10 +1,12 @@
-##Wintersmith Docker image!
+## Wintersmith Docker image!
 
 Clone and build Wintersmith to get started!
-Basic instructions and usage can be found here: https://github.com/jnordberg/wintersmith 
+Basic instructions and usage can be found at the repo base: https://github.com/jnordberg/wintersmith 
 
-I personally built within the Docker image, then extracted the skeleton build afterwards.
-But if you don't mind having the files in your environment, a typical build is fine too.
+I personally built within a Docker image, then extracted the skeleton build afterwards. I really didn't want to install any dependencies on this system.
+But if you don't mind configuring nodejs in your environment, a typical build is fine too.
+
+---
 
 Need to update your blog? Simply edit your content in `static/contents/` per Wintersmith style guide. 
 
