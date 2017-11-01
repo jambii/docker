@@ -34,9 +34,6 @@ usage: alembic [-h] [-c CONFIG] [-n NAME] [-x X] [--raiseerr]
                {branches,current,downgrade,edit,heads,history,init,list_templates,merge,revision,show,stamp,upgrade}
 ```
 
-I've included Bash in the image if any other fancy work needs to be done; or for
-general basic inspection of the image (since it does not persist).
-
 You may also chain together commands by passing them through Bash.
 Bash could also be used to investigate the container's insides in a pinch if file structure is not immediately clear from build step.
 
