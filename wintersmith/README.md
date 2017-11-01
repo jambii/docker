@@ -1,10 +1,13 @@
+Wintersmith Docker image!
+
 Instructions:
-Clone Wintersmith structure, or build in place if that's your thing.
-Edit static files on disk.
-Run rebuild of Docker image, and redeploy new image to publish changes.
+Clone and build  Wintersmith https://github.com/jnordberg/wintersmith
+I personally built within the Docker image, then extracted the skeleton build afterwards.
+But if you don't mind having the files in your environment, a typical build is fine too.
 
-Resulting image is very small, contains no npm binary or node_modules bulk.
-This Dockerfile + node + nginx multi build method can be used for many apps, and has great potential for parameterization.
-For example one could make a script or simple Jenkins job to rebuild + redeploy the blog. And never have to worry about installing npm on your local machine.
+Need to update your blog? Simply edit your content in static/contents/ per Wintersmith style guide. 
+Then, rebuild your Docker image, and deploy the new version!
+The resulting Docker image is very small: nginx and static files only on Alpine! No binaries or node_modules hanging around.
+I will make a blog post about this explaining what else can be done with this template, and how it can be deployed, once I deploy this to my own space online :D
 
-I guess I will make a blog post about it some day.
+Todo: Better Nginx configuration with more examples of usage; right now it is barebones just for static site.
