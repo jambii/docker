@@ -1,7 +1,8 @@
 Wintersmith Docker image!
 
-Instructions:
 Clone and build  Wintersmith https://github.com/jnordberg/wintersmith
+Basic instructions and usage can be found on main README there.
+
 I personally built within the Docker image, then extracted the skeleton build afterwards.
 But if you don't mind having the files in your environment, a typical build is fine too.
 
@@ -11,3 +12,5 @@ The resulting Docker image is very small: nginx and static files only on Alpine!
 I will make a blog post about this explaining what else can be done with this template, and how it can be deployed, once I deploy this to my own space online :D
 
 Todo: Better Nginx configuration with more examples of usage; right now it is barebones just for static site.
+Todo: Script/Dockerfiles showing how to do initial build to get skeleton
+Todo: Flesh out .Dockerignore file
